@@ -1,0 +1,5 @@
+{{ define "main" }}
+  <div class="bg-secondary-bg dark:bg-secondary-bg-dark rounded px-6">
+    {{ partial "news/news-list" (dict "title" (i18n "newsTitle") "news" .Paginator.Pages "Paginator" .Paginator) }}
+  </div>
+{{ end }}

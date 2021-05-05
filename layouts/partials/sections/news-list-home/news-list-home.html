@@ -1,0 +1,2 @@
+{{ $news := first 3 (where site.RegularPages.ByDate.Reverse "Section" "news") }}
+{{ partial "news/news-list" (dict "title" .title "cta" .cta "news" $news) }}

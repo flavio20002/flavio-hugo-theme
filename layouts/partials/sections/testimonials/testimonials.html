@@ -1,0 +1,27 @@
+<div class="overflow-hidden">
+  <div class="my-10 md:my-12 lg:my-14 px-6 md:px-12 lg:px-16 xl:px-0 xl:max-w-screen-xl xl:mx-auto">
+    {{ partial "typography/heading1" (dict "h2" true "text" .title) }}
+    <div class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          {{ range .testimonials }}
+            <li class="splide__slide">
+              <div class="w-full text-center focus:outline-none" }>
+                {{ partial "sections/testimonials/testimonial-element" . }}
+              </div>
+            </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  new Splide('.splide', {
+    type: 'loop',
+    pagination: false,
+    padding: 0,
+    arrows:  {{ gt (len .testimonials) 1 }},
+  }).mount()
+</script>

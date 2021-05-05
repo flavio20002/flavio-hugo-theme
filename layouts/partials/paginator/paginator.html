@@ -1,0 +1,55 @@
+<div
+  class="w-full lg:w-3/4 lg:mx-auto flex flex-wrap justify-center md:justify-between items-center px-6 md:px-10 lg:px-0"
+>
+  <div class="w-full md:w-auto text-center mb-6 md:mb-0">
+    <div class="text-lg leading-5 text-primary-text">Notizia da 1 a 6 di 27</div>
+  </div>
+  <div class="w-full md:w-auto">
+    <div class="flex justify-center">
+      <nav class="relative z-0 inline-flex shadow-sm">
+        {{ if .HasPrev }}
+          {{ partial "paginator/nav-button" (dict "link" .Prev.URL "slim" true "first" true "number" "<") }}
+        {{ end }}
+        {{ if le .TotalPages 5 }}
+          {{ range .Pagers }}
+            {{ partial "paginator/nav-button" (dict "link" .URL "slim" false "first" (not (or .HasPrev $.HasPrev)) "last" (not (or .HasNext $.HasNext)) "active" (eq .PageNumber $.PageNumber) "number" .PageNumber) }}
+          {{ end }}
+        {{ end }}
+        {{ if gt .TotalPages 5 }}
+          {{ if le .PageNumber 2 }}
+            {{ range first 2 .Pagers }}
+              {{ partial "paginator/nav-button" (dict "link" .URL "slim" false "first" (not (or .HasPrev $.HasPrev)) "last" (not (or .HasNext $.HasNext)) "active" (eq .PageNumber $.PageNumber) "number" .PageNumber) }}
+            {{ end }}
+            {{ partial "paginator/nav-button" (dict "disabled" true "number" "...") }}
+            {{ range last 2 .Pagers }}
+              {{ partial "paginator/nav-button" (dict "link" .URL "slim" false "first" (not (or .HasPrev $.HasPrev)) "last" (not (or .HasNext $.HasNext)) "active" (eq .PageNumber $.PageNumber) "number" .PageNumber) }}
+            {{ end }}
+            {{ else  if le .PageNumber (sub .TotalPages 2) }}
+            {{ range first 2 .Pagers }}
+              {{ partial "paginator/nav-button" (dict "link" .URL "slim" false "first" (not (or .HasPrev $.HasPrev)) "last" (not (or .HasNext $.HasNext)) "active" (eq .PageNumber $.PageNumber) "number" .PageNumber) }}
+            {{ end }}
+            {{ partial "paginator/nav-button" (dict "disabled" true "number" "...") }}
+            {{ with index .Pagers (sub .PageNumber 1) }}
+              {{ partial "paginator/nav-button" (dict "link" .URL "slim" false "first" (not (or .HasPrev $.HasPrev)) "last" (not (or .HasNext $.HasNext)) "active" (eq .PageNumber $.PageNumber) "number" .PageNumber) }}
+            {{ end }}
+            {{ partial "paginator/nav-button" (dict "disabled" true "number" "...") }}
+            {{ range last 2 .Pagers }}
+              {{ partial "paginator/nav-button" (dict "link" .URL "slim" false "first" (not (or .HasPrev $.HasPrev)) "last" (not (or .HasNext $.HasNext)) "active" (eq .PageNumber $.PageNumber) "number" .PageNumber) }}
+            {{ end }}
+            {{ else }}
+            {{ range first 2 .Pagers }}
+              {{ partial "paginator/nav-button" (dict "link" .URL "slim" false "first" (not (or .HasPrev $.HasPrev)) "last" (not (or .HasNext $.HasNext)) "active" (eq .PageNumber $.PageNumber) "number" .PageNumber) }}
+            {{ end }}
+            {{ partial "paginator/nav-button" (dict "disabled" true "number" "...") }}
+            {{ range last 2 .Pagers }}
+              {{ partial "paginator/nav-button" (dict "link" .URL "slim" false "first" (not (or .HasPrev $.HasPrev)) "last" (not (or .HasNext $.HasNext)) "active" (eq .PageNumber $.PageNumber) "number" .PageNumber) }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ if .HasNext }}
+          {{ partial "paginator/nav-button" (dict "link" .Next.URL "slim" true "last" true "number" ">") }}
+        {{ end }}
+      </nav>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+{
+  "name": "sito_gianni_zanolin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@tailwindcss/typography": "^0.4.0",
+    "autoprefixer": "^10.2.5",
+    "cross-env": "^7.0.3",
+    "tailwindcss": "^2.0.3"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1",
+    "prettier-plugin-go-template": "0.0.10"
+  },
+  "scripts": {
+    "build-css": "tailwindcss build assets/css/tailwind.css -o assets/css/tailwind-dist-full.css",
+    "build-css-prod": "cross-env NODE_ENV=production npx tailwindcss build assets/css/tailwind.css -o assets/css/tailwind-dist.css"
+  },
+  "author": "",
+  "license": "ISC"
+}

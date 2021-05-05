@@ -1,0 +1,85 @@
+<div class="bg-background-greyLight overflow-auto">
+  <div class="my-10 md:my-12 lg:my-14 px-6 md:px-12 lg:px-16 xl:px-0 xl:max-w-screen-xl xl:mx-auto">
+    <div class="w-full flex flex-wrap">
+      <div class="w-full lg:w-1/2 lg:pr-0 lg:pl-12 flex flex-col justify-between">
+        <div>
+          {{ partial "typography/heading1" (dict "text" .title) }}
+          <div>{{ .subtitle }}</div>
+        </div>
+        <div class="mt-8 lg:mt-0 px-10 lg:px-20 md:w-2/3 md:mx-auto lg:w-full">
+          {{ partial "utils/get-image" (dict "image" .image.image "alt" .image.alt) }}
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/2 mt-8 lg:mt-0 lg:pl-0 lg:pr-12">
+        <form
+          action="https://formcarry.com/s/{{ site.Params.formcarry }}"
+          method="POST"
+          enctype="multipart/form-data"
+          name="Contatti"
+        >
+          <div>
+            <span class="uppercase text-gray-500 font-bold">Nome</span>
+            <input
+              class="w-full bg-gray-200 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+              type="text"
+              name="nome"
+              placeholder=""
+            />
+          </div>
+          <div class="mt-8">
+            <span class="uppercase text-gray-500 font-bold">Email</span>
+            <input
+              class="w-full bg-gray-200 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+              name="email"
+              type="text"
+            />
+          </div>
+          <div class="mt-8">
+            <span class="uppercase text-gray-500 font-bold">Messaggio</span>
+            <textarea
+              class="w-full bg-gray-200 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline resize-none"
+              name="messaggio"
+              rows="5"
+            ></textarea>
+          </div>
+
+          <div class="mt-8">
+            <label class="inline-flex items-center">
+              <input id="privacy-checkbox" type="checkbox" class="form-checkbox h-5 w-5 text-secondaryDark" />
+              <span class="ml-2 text-lg">
+                Accetti le condizioni della <a class="underline" href="/privacy"> privacy </a>
+              </span>
+            </label>
+          </div>
+          {{ with site.Params.recaptcha }}
+            <div class="mt-8">
+              <div class="g-recaptcha" data-sitekey="{{ . }}"></div>
+            </div>
+          {{ end }}
+          <div class="mt-8">
+            <button
+              disabled
+              id="submit-button"
+              type="submit"
+              class="bg-gray-700 disabled:bg-gray-200 hover:bg-gray-400 text-primary-text-dark disabled:text-tertiary-text uppercase font-bold tracking-wide p-3 rounded-lg w-full focus:outline-none focus:shadow-outline"
+            >
+              Invia
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var element = document.getElementById('privacy-checkbox')
+  element.onchange = function () {
+    if (element.checked) {
+      document.getElementById('submit-button').removeAttribute('disabled')
+    } else {
+      document.getElementById('submit-button').disabled = true
+    }
+  }
+</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>

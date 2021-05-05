@@ -1,0 +1,35 @@
+{{ $class := "relative inline-flex items-center py-2 border-l border-t border-b text-sm md:text-base lg:text-lg hover:bg-gray-50" }}
+{{ if .slim }}
+  {{ $class = print $class " px-2" }}
+  {{ else }}
+  {{ $class = print $class " px-4" }}
+{{ end }}
+{{ if .active }}
+  {{ $class = print $class " bg-secondary text-primary-text-dark" }}
+  {{ else }}
+  {{ $class = print $class " bg-white text-primary-text" }}
+{{ end }}
+{{ if .first }}
+  {{ $class = print $class " rounded-l-md" }}
+{{ end }}
+{{ if .last }}
+  {{ $class = print $class " rounded-r-md border-r" }}
+{{ end }}
+{{ if not .disabled }}
+  {{ if .active }}
+    {{ $class = print $class " hover:bg-primary" }}
+    {{ else }}
+    {{ $class = print $class " hover:bg-gray-300" }}
+  {{ end }}
+  {{ else }}
+  {{ $class = print $class " pointer-events-none" }}
+{{ end }}
+<a href="{{ .link }}" class="{{ $class }}">
+  {{ if eq .number "<" }}
+    {{ partial "svg-icons/previous" . }}
+    {{ else if eq .number ">" }}
+    {{ partial "svg-icons/next" . }}
+    {{ else }}
+    {{ .number }}
+  {{ end }}
+</a>

@@ -1,0 +1,15 @@
+<script>
+  function toggle() {
+    document.getElementById('nav-content').classList.toggle('hidden')
+    document.getElementById('nav-close').classList.toggle('hidden')
+    document.getElementById('nav-open').classList.toggle('hidden')
+  }
+
+  document.getElementById('nav-open').onclick = function () {
+    toggle()
+  }
+
+  document.getElementById('nav-close').onclick = function () {
+    toggle()
+  }
+</script>

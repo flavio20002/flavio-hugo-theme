@@ -1,0 +1,8 @@
+{{ $separator := .Site.Params.titleSeparator | default "|" }}
+{{ $title := (print .Title " " $separator " " .Site.Title) | default .Site.Title }}
+<title itemprop="name">{{ $title }}</title>
+<meta property="og:title" content="{{ $title }}" />
+<meta name="twitter:title" content="{{ $title }}" />
+<meta itemprop="name" content="{{ $title }}" />
+<meta name="application-name" content="{{ $title }}" />
+<meta property="og:site_name" content="{{ $title }}" />

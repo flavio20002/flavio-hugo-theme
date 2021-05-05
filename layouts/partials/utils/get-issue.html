@@ -1,0 +1,8 @@
+{{ $issue := . }}
+{{ $scratch := newScratch }}
+{{ range (where site.RegularPages.ByWeight "Section" "issues") }}
+  {{ if eq .File.BaseFileName $issue }}
+    {{ $scratch.Set "issueElement" . }}
+  {{ end }}
+{{ end }}
+{{ return $scratch.Get "issueElement" }}

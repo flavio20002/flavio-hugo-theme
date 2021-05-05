@@ -1,0 +1,30 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+<div class="my-10 md:my-12 lg:my-14 px-6 md:px-12 lg:px-16 xl:px-0 xl:max-w-screen-xl xl:mx-auto">
+  <div class="max-w-prose mx-auto mb-8">
+    {{ with .Params.category }}
+      {{ $issueElement := partial "utils/get-issue" . }}
+      <div class="mb-3">
+        <a href="{{ $issueElement.Page.Permalink }}" class="hover:bg-gray-300 inline py-1 pr-1">
+          <span class="text-l font-bold text-primary-text uppercase border-b border-gray-800">
+            {{ $issueElement.Page.Params.title }}
+          </span>
+        </a>
+      </div>
+    {{ end }}
+    {{ partial "typography/heading1" (dict "text" .Title "class" "mb-3") }}
+    {{ with .Params.date }}
+      {{ $day := printf "%02d" .Day }}
+      {{ $month := index $data.months (printf "%d" .Month) }}
+      {{ partial "typography/emphasis" (dict "text" (print $day " " $month " " .Year " · " (i18n "readingTime" (dict "ReadingTime" $.ReadingTime)))) }}
+    {{ end }}
+
+    {{ with .Params.image }}
+      <a href="{{ $.Permalink }}" class="mx-auto">
+        {{ partial "utils/get-image" (dict "image" .image "alt" .alt) }}
+      </a>
+    {{ end }}
+  </div>
+  <div class="prose md:prose-lg mx-auto dark:prose-light">
+    {{ .Content }}
+  </div>
+</div>

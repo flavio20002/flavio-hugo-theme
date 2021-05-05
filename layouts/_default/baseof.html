@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang='{{ .Site.LanguageCode }}' {{ if eq .Site.Params.colorScheme "dark" }}class="dark" {{ end }}>
+{{- partial "head" . }}
+
+<body class="flex flex-col h-full text-base md:text-lg bg-primary-bg dark:bg-primary-bg-dark text-primary-text dark:text-primary-text-dark">
+  {{- partial "header/header" . -}}
+  <main class="flex-grow">
+    {{- block "main" . }}{{- end }}
+  </main>
+  {{- partial "footer/footer" . -}}
+  <script>
+    var ll = new LazyLoad({});
+  </script>
+</body>
+
+</html>

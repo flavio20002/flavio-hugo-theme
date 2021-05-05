@@ -1,0 +1,49 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+{{ partial "seo/title" . }}
+{{ partial "seo/description" . }}
+{{ partial "seo/link" . }}
+{{ partial "seo/language" . }}
+{{ partial "seo/image" . }}
+{{ partial "seo/date" . }}
+{{ partial "seo/robots" . }}
+
+{{- $splideCSS := resources.Get "css/splide-2.4.20.css" }}
+{{- $fontawesomeCSS := resources.Get "css/fontawesome-5.15.3.css" }}
+{{- $mainCSS := resources.Get "css/main.css" }}
+{{- $tailwindCSS := resources.Get "css/tailwind-dist.css" }}
+
+{{ if .Site.IsServer }}
+  {{- $tailwindCSS = resources.Get "css/tailwind-dist-full.css" }}
+{{ end }}
+
+{{ $css := slice $splideCSS $tailwindCSS $fontawesomeCSS $mainCSS | resources.Concat "css/bundle.css" }}
+{{- $css := $css | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.Permalink }}" />
+
+{{- $splideJS := resources.Get "js/splide-2.4.20.js" | minify }}
+{{- $intersectionObserverJS := resources.Get "js/intersection-observer-0.7.0.js" | minify }}
+{{- $lazyload := resources.Get "js/lazyload-17.3.1.js" | minify }}
+
+{{ $js := slice $splideJS $intersectionObserverJS $lazyload | resources.Concat "js/bundle.js" }}
+{{- $js := $js | minify | fingerprint }}
+<script src="{{ $js.Permalink }}"></script>
+
+{{- if and .Site.GoogleAnalytics hugo.IsProduction }}
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
+  <script>
+                                                          window.dataLayer = window.dataLayer || [];
+                                                          function gtag() { dataLayer.push(arguments); }
+                                                          gtag('js', new Date());
+                                                          gtag('config', '{{ .Site.GoogleAnalytics }}');
+                                                        </script>
+{{- end }}
+
+{{- with .Site.Params.icon }}
+  {{ $icon := (partial "utils/get-icon" (dict "icon" . "size" 32)).Permalink }}
+  {{ $iconApple := (partial "utils/get-icon" (dict "icon" . "size" 180)).Permalink }}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ $icon }}" />
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ $iconApple }}" />
+{{- end }}

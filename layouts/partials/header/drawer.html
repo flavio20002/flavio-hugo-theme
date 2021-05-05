@@ -1,0 +1,19 @@
+{{ $relPermalink := .relPermalink }}
+<nav
+  id="nav-content"
+  class="{{ if .showImage }} opacity-80 {{ else }} opacity-90 {{ end }} hidden absolute z-20 top-0 left-0 w-full bg-black transition-opacity h-full text-primaryLight text-center font-heading 2xl:hidden overflow-y-scroll overflow-x-hidden"
+>
+  <div class="mt-32 w-full border-t-2 border-white space-y-6 py-10">
+    {{- range .links }}
+      <div>
+        {{ $selected := partial "utils/is-current-link" (dict "link" .link "relPermalink" $relPermalink) }}
+        <a
+          class="{{ if $selected }} text-primary-text-dark {{ else }} text-gray-500 {{ end }} inline py-3 px-5 no-underline hover:no-underline text-xl"
+          href="{{ .link | relLangURL }}"
+        >
+          {{ .name }}
+        </a>
+      </div>
+    {{- end }}
+  </div>
+</nav>

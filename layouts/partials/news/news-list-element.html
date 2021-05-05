@@ -1,0 +1,42 @@
+{{ $data := index .Site.Data .Site.Language.Lang }}
+<div class="md:flex md:flex-wrap w-full">
+  {{ with .Params.image }}
+    <a href="{{ $.Permalink }}" class="hidden md:block md:w-1/3 md:self-center">
+      {{ $image := (resources.Get .image).Resize "440x" }}
+      <img data-src="{{ $image.Permalink }}" class="lazy" alt="{{ .alt }}" class="" />
+    </a>
+  {{ end }}
+  <div class="{{ if .Params.image }} md:pl-16 {{ else }} {{ end }} w-full flex flex-col flex-grow flex-shrink md:w-2/3">
+    {{ with .Params.category }}
+      {{ $issueElement := partial "utils/get-issue" . }}
+      <div class="mb-2 md:mb-4">
+        <a href="{{ $issueElement.Page.Permalink }}" class="hover:bg-gray-300 inline py-1 pr-1">
+          <span class="text-l font-bold text-primaryDark uppercase border-b border-gray-800">
+            {{ $issueElement.Page.Params.title }}
+          </span>
+        </a>
+      </div>
+    {{ end }}
+    <a href="{{ $.Permalink }}" class="hover:bg-gray-300 mb-4 md:mb-6">
+      <div class="w-full font-bold text-xl text-primaryDark">{{ .Title }}</div>
+    </a>
+
+    {{ with .Params.date }}
+      {{ $day := printf "%02d" .Day }}
+      {{ $month := index $data.months (printf "%d" .Month) }}
+      {{ partial "typography/emphasis" (dict "text" (print $day " " $month " " .Year " · " (i18n "readingTime" (dict "ReadingTime" $.ReadingTime)))) }}
+    {{ end }}
+
+    {{ with .Params.image }}
+      <a href="{{ $.Permalink }}" class="mb-6 md:mb-8  mx-auto md:hidden">
+        {{ $image := (resources.Get .image).Resize "440x" }}
+        <img data-src="{{ $image.Permalink }}" class="lazy" alt="{{ .alt }}" class="" />
+      </a>
+    {{ end }}
+
+    <p class="text-primary-text leading-relaxed text-lg mb-4 md:mb-6">{{ .Params.shortDescription }}</p>
+
+    <a href="{{ $.Permalink }}" class="underline font-bold"> {{ i18n "continueReading" }} </a>
+  </div>
+  <hr class="my-6 md:my-8 lg:my-10 border-gray-400 w-full" />
+</div>

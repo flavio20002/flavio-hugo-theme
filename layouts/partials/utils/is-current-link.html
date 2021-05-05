@@ -1,0 +1,2 @@
+{{- $selected := or ( and (eq .link "/") (eq .link .relPermalink) ) ( and (ne .link "/") (hasPrefix .relPermalink .link)) }}
+{{ return $selected }}

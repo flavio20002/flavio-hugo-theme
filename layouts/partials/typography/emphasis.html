@@ -1,0 +1,5 @@
+{{ $classNameFull := "mb-6 text-sm md:text-base lg:text-lg text-gray-500" }}
+{{ if .class }}
+  {{ $classNameFull = (print $classNameFull " " .class) }}
+{{ end }}
+<div class="{{ $classNameFull }}">{{ .text }}</div>

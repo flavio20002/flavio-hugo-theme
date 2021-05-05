@@ -1,0 +1,33 @@
+<div class="{{ if .dark }} bg-gray-500 {{ else }} bg-gray-50 {{ end }} overflow-auto">
+  <div class="my-10 md:my-12 lg:my-14 px-6 md:px-12 lg:px-16 xl:px-0 xl:max-w-screen-xl xl:mx-auto">
+    <div class="w-full lg:w-3/4 lg:mx-auto flex flex-wrap md:justify-between md:items-center md:pl-10 md:pr-0 lg:px-0">
+      <div class="w-full md:w-1/2">
+        <h2
+          class="font-bold text-4xl md:text-6xl mt-0 md:mr-20 {{ if .dark }} text-primary-text-dark {{ else }} text-gray-700{{ end }}"
+        >
+          {{ .title }}
+        </h2>
+        <div
+          class="text-xl md:text-2xl mt-3 md:mt-5 md:mb-10 md:mr-10 lg:mr-20  {{ if .dark }} text-secondary-text-dark {{ else }} text-gray-700{{ end }}"
+        >
+          {{ .text | markdownify }}
+        </div>
+        {{ with .cta.text }}
+          <div class="w-full md:w-2/3 lg:w-1/2 mb-10 md:my-0 hidden md:block">
+            {{ partial "button/button" $.cta }}
+          </div>
+        {{ end }}
+      </div>
+      {{ with .image }}
+        <div class="w-full md:w-1/2 mt-8 md:my-0 px-10 lg:px-24">
+          {{ partial "utils/get-image" (dict "image" .image "alt" .alt "class" "rounded-lg") }}
+        </div>
+      {{ end }}
+      {{ with .cta }}
+        <div class="w-full mt-8 md:hidden">
+          {{ partial "button/button" . }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>

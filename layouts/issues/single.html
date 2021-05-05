@@ -1,0 +1,5 @@
+{{ define "main" }}
+  {{ partial "news/news-post" . }}
+  {{ $news := where (where site.RegularPages.ByDate.Reverse "Section" "news") "Params.category" "==" .File.BaseFileName }}
+  {{ partial "news/news-list" (dict "title" (i18n "correlatedNews") "news" $news) }}
+{{ end }}

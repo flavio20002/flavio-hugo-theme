@@ -1,0 +1,18 @@
+{{ with .image }}
+  {{ if strings.HasSuffix . "svg" }}
+    {{ (resources.Get .).Content | safeHTML }}
+    {{ else }}
+    {{ $imageResource := ( resources.Get .) }}
+    {{ $image320 := $imageResource.Resize "320x" }}
+    {{ $image680 := $imageResource.Resize "680x" }}
+    <picture>
+      <source media="(min-width:580px)" srcset="{{ $image680.Permalink }}" />
+      <img
+        data-src="{{ $image320.Permalink }}"
+        alt="{{ $.alt }}"
+        class="mx-auto lazy {{ with $.class }}{{ . }}{{ end }}"
+        title="{{ with $.title }}{{ . }}{{ end }}"
+      />
+    </picture>
+  {{ end }}
+{{ end }}

@@ -1,0 +1,13 @@
+{{ with .Params.image }}
+  {{ $image := (resources.Get .image).Permalink }}
+  <meta itemprop="image" content="{{ $image }}" />
+  <meta property="og:image" content="{{ $image }}" />
+  <meta name="twitter:image" content="{{ $image }}" />
+  <meta name="twitter:image:src" content="{{ $image }}" />
+  {{ else }}
+  {{ $image := (resources.Get $.Site.Params.ogimage).Permalink }}
+  <meta itemprop="image" content="{{ $image }}" />
+  <meta property="og:image" content="{{ $image }}" />
+  <meta name="twitter:image" content="{{ $image }}" />
+  <meta name="twitter:image:src" content="{{ $image }}" />
+{{ end }}

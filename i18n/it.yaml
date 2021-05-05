@@ -1,0 +1,8 @@
+readingTime:
+  other: 'Tempo di lettura: {{ .ReadingTime }} min'
+newsTitle:
+  other: Notizie
+correlatedNews:
+  other: Notizie correlate
+continueReading:
+  other: Continua a leggere
