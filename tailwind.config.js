@@ -144,7 +144,7 @@ module.exports = {
   },
   variants: {
     extend: {
-      typography: ['dark'],
+      // typography: ['dark'],
       backgroundColor: ['disabled'],
       textColor: ['disabled'],
     },
