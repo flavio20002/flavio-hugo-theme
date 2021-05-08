@@ -3,15 +3,23 @@
     {{ (resources.Get .).Content | safeHTML }}
     {{ else }}
     {{ $imageResource := ( resources.Get .) }}
-    {{ $image320 := $imageResource.Resize "320x" }}
+    {{ $image448 := $imageResource.Resize "448x" }}
     {{ $image680 := $imageResource.Resize "680x" }}
+    {{ $imagePlaceholder := $imageResource.Resize "10x" }}
     <picture>
-      <source media="(min-width:580px)" srcset="{{ $image680.Permalink }}" />
+      <source
+        media="(min-width:768px)"
+        srcset="data:image/jpeg;base64,{{ $imagePlaceholder.Content | base64Encode }}"
+        adata-srcset="{{ $image680.Permalink }}"
+      />
       <img
-        data-src="{{ $image320.Permalink }}"
+        src="data:image/jpeg;base64,{{ $imagePlaceholder.Content | base64Encode }}"
+        adata-src="{{ $image448.Permalink }}"
         alt="{{ $.alt }}"
-        class="mx-auto lazy {{ with $.class }}{{ . }}{{ end }}"
+        class="mx-auto lazy {{ with $.class }}{{ . }}{{ end }} max-w-md md:max-w-none"
         title="{{ with $.title }}{{ . }}{{ end }}"
+        width="100%"
+        height="100%"
       />
     </picture>
   {{ end }}
