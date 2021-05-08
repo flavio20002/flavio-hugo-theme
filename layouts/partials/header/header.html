@@ -9,13 +9,21 @@
 <header
   class="{{ if $showImage }} absolute z-10 {{ else }} bg-primary pb-6 relative {{ end }} pt-6 w-full text-primary-text-dark text-center font-heading"
 >
-  <div>
-    <a class="inline-block hover:bg-gray-700 hover:text-primary-text-dark p-4" href="/">
-      <p class="text-xl md:text-2xl">{{ $data.header.title }}</p>
-      <p class="text-4xl md:text-5xl -mt-1">{{ $data.header.subtitle }}</p>
-      <p class="text-lg md:text-xl bg-white text-primary-text mt-1">{{ $data.header.highlight }}</p>
-    </a>
-  </div>
+  {{ with  $data.header.title }}
+    <div>
+      <a class="inline-block hover:bg-gray-700 hover:text-primary-text-dark p-4" href="/">
+        <p class="text-xl md:text-2xl">{{ $data.header.title }}</p>
+        <p class="text-4xl md:text-5xl -mt-1">{{ $data.header.subtitle }}</p>
+        <p class="text-lg md:text-xl bg-white text-primary-text mt-1">{{ $data.header.highlight }}</p>
+      </a>
+    </div>
+  {{ end }}
+
+  {{ with  $data.header.titleRight }}
+    <div class="text-left pl-6">
+      {{ . }}
+    </div>
+  {{ end }}
 
   <nav class="absolute top-0 right-0 hidden 2xl:block mr-6 mt-6">
     {{- range $data.header.links }}
@@ -24,10 +32,10 @@
   </nav>
 </header>
 {{ if eq $context.Page.Params.headerType "Full" }}
-  {{ with  $data.header }}
-    {{ $imageMob := resources.Get .imageMobile.image }}
+  {{ with  $data.header.image }}
+    {{ $imageMob := resources.Get $data.header.imageMobile.image }}
     {{ $imageMob := $imageMob.Resize "768x" }}
-    {{ $image := resources.Get .image.image }}
+    {{ $image := resources.Get $data.header.image.image }}
     {{ $image := $image.Resize "1920x" }}
     <style>
       #header-hero-image {
