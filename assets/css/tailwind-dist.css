@@ -1337,11 +1337,6 @@ video {
   line-height: 2 !important;
 }
 
-.my-2 {
-  margin-top: 0.5rem !important;
-  margin-bottom: 0.5rem !important;
-}
-
 .mx-4 {
   margin-left: 1rem !important;
   margin-right: 1rem !important;
@@ -1350,16 +1345,6 @@ video {
 .my-6 {
   margin-top: 1.5rem !important;
   margin-bottom: 1.5rem !important;
-}
-
-.mx-6 {
-  margin-left: 1.5rem !important;
-  margin-right: 1.5rem !important;
-}
-
-.my-8 {
-  margin-top: 2rem !important;
-  margin-bottom: 2rem !important;
 }
 
 .my-10 {
@@ -1559,11 +1544,6 @@ video {
   padding-right: 1.5rem !important;
 }
 
-.py-8 {
-  padding-top: 2rem !important;
-  padding-bottom: 2rem !important;
-}
-
 .px-8 {
   padding-left: 2rem !important;
   padding-right: 2rem !important;
@@ -1680,11 +1660,6 @@ video {
   color: rgba(55, 65, 81, var(--tw-text-opacity)) !important;
 }
 
-.text-eureka {
-  --tw-text-opacity: 1 !important;
-  color: rgba(56, 178, 172, var(--tw-text-opacity)) !important;
-}
-
 .text-primary-text {
   --tw-text-opacity: 1 !important;
   color: rgba(38, 38, 38, var(--tw-text-opacity)) !important;
@@ -1745,10 +1720,6 @@ video {
 
 .no-underline {
   text-decoration: none !important;
-}
-
-.hover\:underline:hover {
-  text-decoration: underline !important;
 }
 
 .hover\:no-underline:hover {

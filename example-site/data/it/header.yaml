@@ -1,0 +1,29 @@
+title: Lorem
+subtitle: Ipsum
+highlight: Lorem
+image:
+  image: /images/person.jpg
+  alt: Lorem
+imageMobile:
+  image: /images/person.jpg
+  alt: Lorem
+logo:
+  image: /images/logo.png
+  alt: Logo
+imagePosition: 60
+heroTitle: ''
+heroSubtitle: ''
+links:
+  - link: /
+    name: Home
+  - link: /chi-sono
+    name: Chi sono
+  - link: /notizie
+    name: Notizie
+  - name: Le priorità
+    link: /priorita
+  - name: Video
+    newTab: true
+    link: https://www.youtube.com
+  - link: /contattami
+    name: Contattami

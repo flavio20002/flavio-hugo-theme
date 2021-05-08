@@ -1,0 +1,22 @@
+{
+  "arrowParens": "avoid",
+  "semi": false,
+  "tabWidth": 2,
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "jsxSingleQuote": false,
+  "quoteProps": "consistent",
+  "printWidth": 120,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "useTabs": false,
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": ["*.html"],
+      "options": {
+        "parser": "go-template"
+      }
+    }
+  ]
+}

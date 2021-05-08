@@ -1,0 +1,15 @@
+Title: Contattami
+Subtitle: Puoi contattarmi sulle seguenti piattaforme
+links1:
+  - name: Chi sono
+    link: /chi-sono
+  - name: Notizie
+    link: /notizie
+  - name: Le nostre priorità
+    link: /priorita
+links2:
+  - name: Contattami
+    link: /contattami
+  - name: Privacy
+    link: /privacy
+copyright: 'Copyright &copy; {year} Example site'

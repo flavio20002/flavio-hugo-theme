@@ -1,0 +1,21 @@
+# en:
+#   languageCode: en
+#   languageName: English
+#   contentDir: content/en
+#   title: 'Example Site'
+#   permalinks:
+#     issues: /issues/:slug
+#     news: /news/:slug
+#   copyright: >
+#     &copy; {year} Example Site
+
+it:
+  languageCode: it
+  languageName: Italiano
+  contentDir: content/it
+  title: 'Example Site'
+  permalinks:
+    issues: /priorita/:slug
+    news: /notizie/:filename
+  copyright: >
+    &copy; {year} Example Site
