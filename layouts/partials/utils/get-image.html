@@ -10,11 +10,11 @@
       <source
         media="(min-width:768px)"
         srcset="data:image/jpeg;base64,{{ $imagePlaceholder.Content | base64Encode }}"
-        adata-srcset="{{ $image680.Permalink }}"
+        data-srcset="{{ $image680.Permalink }}"
       />
       <img
         src="data:image/jpeg;base64,{{ $imagePlaceholder.Content | base64Encode }}"
-        adata-src="{{ $image448.Permalink }}"
+        data-src="{{ $image448.Permalink }}"
         alt="{{ $.alt }}"
         class="mx-auto lazy {{ with $.class }}{{ . }}{{ end }} max-w-md md:max-w-none"
         title="{{ with $.title }}{{ . }}{{ end }}"
