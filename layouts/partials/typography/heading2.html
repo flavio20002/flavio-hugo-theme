@@ -1,0 +1,13 @@
+{{ $classNameFull := "text-xl md:text-2xl" }}
+
+{{ if .class }}
+  {{ $classNameFull = (print $classNameFull " " .class) }}
+  {{ else }}
+  {{ $classNameFull = (print $classNameFull " " "mb-8") }}
+{{ end }}
+
+{{ if .h3 }}
+  <h3 class="{{ $classNameFull }}">{{ .text }}</h3>
+  {{ else }}
+  <h2 class="{{ $classNameFull }}">{{ .text }}</h2>
+{{ end }}

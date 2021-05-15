@@ -13,20 +13,22 @@
 {{- $fontawesomeCSS := resources.Get "css/fontawesome-5.15.3.css" }}
 {{- $mainCSS := resources.Get "css/main.css" }}
 {{- $tailwindCSS := resources.Get "css/tailwind-dist.css" }}
+{{- $glightboxCSS := resources.Get "css/glightbox-3.0.8.css" }}
 
 {{ if .Site.IsServer }}
   {{- $tailwindCSS = resources.Get "css/tailwind-dist-full.css" }}
 {{ end }}
 
-{{ $css := slice $splideCSS $tailwindCSS $fontawesomeCSS $mainCSS | resources.Concat "css/bundle.css" }}
+{{ $css := slice $splideCSS $tailwindCSS $fontawesomeCSS $mainCSS $glightboxCSS | resources.Concat "css/bundle.css" }}
 {{- $css := $css | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.Permalink }}" />
 
 {{- $splideJS := resources.Get "js/splide-2.4.20.js" | minify }}
 {{- $intersectionObserverJS := resources.Get "js/intersection-observer-0.7.0.js" | minify }}
 {{- $lazyload := resources.Get "js/lazyload-17.3.1.js" | minify }}
+{{- $glightbox := resources.Get "js/glightbox-3.0.8.js" | minify }}
 
-{{ $js := slice $splideJS $intersectionObserverJS $lazyload | resources.Concat "js/bundle.js" }}
+{{ $js := slice $splideJS $intersectionObserverJS $lazyload $glightbox | resources.Concat "js/bundle.js" }}
 {{- $js := $js | minify | fingerprint }}
 <script src="{{ $js.Permalink }}"></script>
 
@@ -34,11 +36,11 @@
   <link rel="preconnect" href="https://www.google-analytics.com" crossorigin />
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.GoogleAnalytics }}"></script>
   <script>
-                                                          window.dataLayer = window.dataLayer || [];
-                                                          function gtag() { dataLayer.push(arguments); }
-                                                          gtag('js', new Date());
-                                                          gtag('config', '{{ .Site.GoogleAnalytics }}');
-                                                        </script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', '{{ .Site.GoogleAnalytics }}');
+  </script>
 {{- end }}
 
 {{- with .Site.Params.icon }}

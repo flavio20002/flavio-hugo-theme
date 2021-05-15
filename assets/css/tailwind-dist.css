@@ -898,81 +898,6 @@ video {
   margin-bottom: 0;
 }
 
-.dark .dark\:prose-light {
-  color: #9ca3af;
-}
-
-.dark .dark\:prose-light [class~="lead"] {
-  color: #d1d5db;
-}
-
-.dark .dark\:prose-light a {
-  color: #fff;
-}
-
-.dark .dark\:prose-light strong {
-  color: #fff;
-}
-
-.dark .dark\:prose-light ol > li::before {
-  color: #9ca3af;
-}
-
-.dark .dark\:prose-light ul > li::before {
-  background-color: #4b5563;
-}
-
-.dark .dark\:prose-light hr {
-  border-color: #e5e7eb;
-}
-
-.dark .dark\:prose-light blockquote {
-  color: #e5e7eb;
-  border-left-color: #4b5563;
-}
-
-.dark .dark\:prose-light h1 {
-  color: #fff;
-}
-
-.dark .dark\:prose-light h2 {
-  color: #fff;
-}
-
-.dark .dark\:prose-light h3 {
-  color: #fff;
-}
-
-.dark .dark\:prose-light h4 {
-  color: #fff;
-}
-
-.dark .dark\:prose-light figure figcaption {
-  color: #9ca3af;
-}
-
-.dark .dark\:prose-light code {
-  color: #fff;
-}
-
-.dark .dark\:prose-light a code {
-  color: #fff;
-}
-
-.dark .dark\:prose-light pre {
-  color: #e5e7eb;
-  background-color: #1f2937;
-}
-
-.dark .dark\:prose-light thead {
-  color: #fff;
-  border-bottom-color: #9ca3af;
-}
-
-.dark .dark\:prose-light tbody tr {
-  border-bottom-color: #4b5563;
-}
-
 .space-y-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0 !important;
   margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse))) !important;
@@ -1357,6 +1282,11 @@ video {
   margin-right: auto !important;
 }
 
+.-mx-2 {
+  margin-left: -0.5rem !important;
+  margin-right: -0.5rem !important;
+}
+
 .mt-0 {
   margin-top: 0px !important;
 }
@@ -1445,6 +1375,10 @@ video {
   margin-top: -3rem !important;
 }
 
+.max-w-md {
+  max-width: 28rem !important;
+}
+
 .max-w-prose {
   max-width: 65ch !important;
 }
@@ -1486,6 +1420,10 @@ video {
 
 .overflow-y-scroll {
   overflow-y: scroll !important;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
 }
 
 .p-3 {
@@ -1641,6 +1579,10 @@ video {
   --tw-ring-shadow: 0 0 #0000;
 }
 
+.text-left {
+  text-align: left !important;
+}
+
 .text-center {
   text-align: center !important;
 }
@@ -1748,6 +1690,10 @@ video {
 
 .w-32 {
   width: 8rem !important;
+}
+
+.w-1\/2 {
+  width: 50% !important;
 }
 
 .w-2\/3 {
@@ -2216,6 +2162,10 @@ video {
 
   .md\:ml-auto {
     margin-left: auto !important;
+  }
+
+  .md\:max-w-none {
+    max-width: none !important;
   }
 
   .md\:px-0 {

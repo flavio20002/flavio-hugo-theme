@@ -17,4 +17,7 @@
   {{- if eq .template "section-hero" -}}
     {{ partial "sections/hero/hero" . }}
   {{- end -}}
+  {{- if eq .template "section-gallery" -}}
+    {{ partial "sections/gallery/gallery" . }}
+  {{- end -}}
 {{- end -}}
