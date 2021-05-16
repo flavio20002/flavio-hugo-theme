@@ -23,9 +23,9 @@
           {{ partial "utils/get-image" (dict "image" .image "alt" .alt "class" "rounded-lg") }}
         </div>
       {{ end }}
-      {{ with .cta }}
+      {{ with .cta.text }}
         <div class="w-full mt-8 md:hidden">
-          {{ partial "button/button" . }}
+          {{ partial "button/button" $.cta }}
         </div>
       {{ end }}
     </div>

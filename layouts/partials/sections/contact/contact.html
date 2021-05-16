@@ -15,6 +15,7 @@
         <form
           action="https://formcarry.com/s/{{ site.Params.formcarry }}"
           method="POST"
+          id="formcarry-form"
           enctype="multipart/form-data"
           name="Contatti"
         >
@@ -81,5 +82,34 @@
       document.getElementById('submit-button').disabled = true
     }
   }
+
+  var form = document.getElementById('formcarry-form'),
+    actionPath = ''
+  formData = null
+
+  var xhr = new XMLHttpRequest()
+
+  form.addEventListener(
+    'submit',
+    e => {
+      e.preventDefault()
+
+      formData = new FormData(form)
+      actionPath = form.getAttribute('action')
+
+      xhr.open('POST', actionPath)
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+      xhr.setRequestHeader('Accept', 'text/html')
+      xhr.onload = function () {
+        if (xhr.readyState == 4 && xhr.status === 200 && xhr.responseText) {
+          window.location.href = {{ .action }}
+        } else if (xhr.status !== 200 || !xhr.responseText) {
+          alert('Si è verificato un errore')
+        }
+      }
+      xhr.send(formData)
+    },
+    false,
+  )
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
