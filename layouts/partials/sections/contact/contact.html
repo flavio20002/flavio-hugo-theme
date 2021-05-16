@@ -94,12 +94,17 @@
     e => {
       e.preventDefault()
 
-      formData = new FormData(form)
-      actionPath = form.getAttribute('action')
-
-      xhr.open('POST', actionPath)
-      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-      xhr.setRequestHeader('Accept', 'text/html')
+      // Collect the form data while iterating over the inputs
+      var data = {};
+      for (var i = 0, ii = form.length; i < ii; ++i) {
+        var input = form[i];
+        if (input.name) {
+          data[input.name] = input.value;
+        }
+      }
+      xhr.open(form.method, form.action, true);
+      xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
+      xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
       xhr.onload = function () {
         if (xhr.readyState == 4 && xhr.status === 200 && xhr.responseText) {
           window.location.href = {{ .action }}
@@ -107,7 +112,7 @@
           alert('Si è verificato un errore')
         }
       }
-      xhr.send(formData)
+      xhr.send(JSON.stringify(data));
     },
     false,
   )
