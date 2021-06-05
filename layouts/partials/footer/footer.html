@@ -1,6 +1,7 @@
 {{ $data := index .Site.Data .Site.Language.Lang }}
 <footer class="bg-tertiary text-primary-text-dark overflow-hidden">
-  <div class="my-10 md:my-12 lg:my-14 px-6 md:px-12 lg:px-16 xl:px-0 xl:max-w-screen-xl xl:mx-auto">
+  {{ $layoutClass := partial "utils/get-layout" . }}
+  <div class="{{ $layoutClass }}">
     <div class="relative">
       <div class="container mx-auto">
         <div class="flex flex-wrap">

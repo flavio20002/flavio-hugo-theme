@@ -1,5 +1,6 @@
 {{ $data := index .Site.Data .Site.Language.Lang }}
-<div class="my-10 md:my-12 lg:my-14 px-6 md:px-12 lg:px-16 xl:px-0 xl:max-w-screen-xl xl:mx-auto">
+{{ $layoutClass := partial "utils/get-layout" . }}
+<div class="{{ $layoutClass }}">
   <div class="max-w-prose mx-auto mb-8">
     {{ with .Params.category }}
       {{ $issueElement := partial "utils/get-issue" . }}

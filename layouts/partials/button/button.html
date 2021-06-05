@@ -1,5 +1,5 @@
 <a
-  class="w-full flex items-center justify-center border border-transparent md:text-lg leading-6 rounded-md text-primary-text-dark bg-secondary hover:bg-tertiary focus:outline-none focus:border-none focus:shadow-outline transition duration-150 ease-in-out px-8 md:px-10 py-3 md:py-4 mx-auto md:mx-0"
+  class="w-full font-bold flex items-center justify-center border border-transparent md:text-lg leading-6 rounded-md focus:outline-none focus:border-none focus:shadow-outline transition duration-150 ease-in-out px-8 md:px-10 py-3 md:py-4 mx-auto md:mx-0  {{ if .light }} text-primary-text bg-yellow-300 hover:bg-yellow-200 {{ else }} text-primary-text-dark bg-secondary hover:bg-tertiary  {{ end }}"
   href="{{ .link | relLangURL }}"
 >
   {{ .text }}

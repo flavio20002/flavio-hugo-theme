@@ -16,4 +16,9 @@
       </div>
     {{- end }}
   </div>
+  {{ with .cta }}
+    <div class="2xl:hidden inline-block mt-8">
+      {{ partial "button/button" . }}
+    </div>
+  {{ end }}
 </nav>

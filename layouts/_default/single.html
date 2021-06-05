@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ partial "flexible-content" . }}
   {{ with .Content }}
-    <div class="my-10 md:my-12 lg:my-14 px-6 md:px-12 lg:px-16 xl:px-0 xl:max-w-screen-xl xl:mx-auto">
+    <div class="{{ partial "utils/get-layout" . }}">
       <div class="prose md:prose-lg mx-auto dark:prose-light">
         {{ . }}
       </div>

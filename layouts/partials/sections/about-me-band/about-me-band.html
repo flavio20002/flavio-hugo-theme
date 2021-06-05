@@ -1,5 +1,6 @@
 <div>
-  <div class="my-10 md:my-12 lg:my-14 px-6 md:px-12 lg:px-16 xl:px-0 xl:max-w-screen-xl xl:mx-auto">
+  {{ $layoutClass := partial "utils/get-layout" . }}
+  <div class="{{ $layoutClass }}">
     <div>
       <blockquote class="text-2xl lg:text-3xl text-center mb-6">{{ .text }}</blockquote>
       <div class="text-center">

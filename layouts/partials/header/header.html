@@ -4,32 +4,40 @@
 
 {{ partial "header/hamburger-icon.html" . }}
 
-{{ partial "header/drawer.html" (dict "showImage" $showImage "links" $data.header.links  "relPermalink" $context.RelPermalink) }}
+{{ partial "header/drawer.html" (dict "showImage" $showImage "links" $data.header.links "cta" $data.header.cta "relPermalink" $context.RelPermalink) }}
 
 <header
-  class="{{ if $showImage }} absolute z-10 {{ else }} bg-primary pb-6 relative {{ end }} pt-6 w-full text-primary-text-dark text-center font-heading"
+  class="{{ if $showImage }} absolute {{ else }} bg-primary relative {{ end }} w-full text-primary-text-dark font-heading"
 >
-  {{ with  $data.header.title }}
-    <div>
-      <a class="inline-block hover:bg-gray-700 hover:text-primary-text-dark p-4" href="/">
-        <p class="text-xl md:text-2xl">{{ $data.header.title }}</p>
-        <p class="text-4xl md:text-5xl -mt-1">{{ $data.header.subtitle }}</p>
-        <p class="text-lg md:text-xl bg-white text-primary-text mt-1">{{ $data.header.highlight }}</p>
-      </a>
-    </div>
-  {{ end }}
+  {{ $layoutClass := partial "utils/get-layout" . }}
+  <div class="{{ $layoutClass }} flex items-center justify-center">
+    {{ with  $data.header.title }}
+      <div class="text-left">
+        <a class="text-center inline-block hover:bg-gray-700 hover:text-primary-text-dark" href="/">
+          <p class="text-xl md:text-2xl">{{ $data.header.title }}</p>
+          <p class="text-4xl md:text-5xl -mt-1">{{ $data.header.subtitle }}</p>
+          <p class="text-lg md:text-xl bg-white text-primary-text mt-1">{{ $data.header.highlight }}</p>
+        </a>
+      </div>
+    {{ end }}
 
-  {{ with  $data.header.titleRight }}
-    <div class="text-left pl-6">
-      {{ . }}
-    </div>
-  {{ end }}
+    {{ with  $data.header.titleRight }}
+      <div class="text-left pl-6">
+        {{ . }}
+      </div>
+    {{ end }}
 
-  <nav class="absolute top-0 right-0 hidden 2xl:block mr-6 mt-6">
-    {{- range $data.header.links }}
-      {{ partial "header/desktop-link.html" (dict "context" . "relPermalink" $context.RelPermalink) }}
-    {{- end }}
-  </nav>
+    <nav class="hidden 2xl:block ml-10">
+      {{- range $data.header.links }}
+        {{ partial "header/desktop-link.html" (dict "context" . "relPermalink" $context.RelPermalink) }}
+      {{- end }}
+    </nav>
+    {{ with $data.header.cta }}
+      <div class="hidden 2xl:block ml-auto">
+        {{ partial "button/button" . }}
+      </div>
+    {{ end }}
+  </div>
 </header>
 {{ if eq $context.Page.Params.headerType "Full" }}
   {{ with  $data.header.image }}
