@@ -2232,6 +2232,10 @@ video {
     display: flex !important;
   }
 
+  .lg\:items-end {
+    align-items: flex-end !important;
+  }
+
   .lg\:justify-center {
     justify-content: center !important;
   }
@@ -2265,12 +2269,24 @@ video {
     margin-top: 0px !important;
   }
 
+  .lg\:mr-0 {
+    margin-right: 0px !important;
+  }
+
+  .lg\:mb-0 {
+    margin-bottom: 0px !important;
+  }
+
   .lg\:mb-16 {
     margin-bottom: 4rem !important;
   }
 
   .lg\:mr-20 {
     margin-right: 5rem !important;
+  }
+
+  .lg\:ml-auto {
+    margin-left: auto !important;
   }
 
   .lg\:px-0 {
