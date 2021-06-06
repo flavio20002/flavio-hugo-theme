@@ -1,6 +1,6 @@
 {{ $selected := partial "utils/is-current-link" (dict "link" .context.link "relPermalink" .relPermalink) }}
 <a
-  class="{{ if $selected }} text-primary-text-dark {{ else }} text-gray-500 {{ end }} mr-2 ml-2 xl:ml-6 leading-loose border-b-2 border-transparent hover:text-tertiary-text-dark hover:no-underline"
+  class="{{ if $selected }} text-primary-text-dark {{ else }} text-gray-500 {{ end }} text-xl mr-2 ml-2 xl:ml-6 leading-loose border-b-2 border-transparent hover:text-tertiary-text-dark hover:no-underline"
   target="{{ if .context.newTab }} _blank {{ end }}"
   href="{{ .context.link | relLangURL }}"
 >

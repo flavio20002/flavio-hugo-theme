@@ -1,15 +1,23 @@
 <script>
-  function toggle() {
-    document.getElementById('nav-content').classList.toggle('hidden')
-    document.getElementById('nav-close').classList.toggle('hidden')
-    document.getElementById('nav-open').classList.toggle('hidden')
+  function openDrawer() {
+    document.getElementById('nav-content').classList.remove('hidden')
+    document.getElementById('nav-close').classList.remove('hidden')
+    document.getElementById('nav-open').classList.add('hidden')
+    bodyScrollLock.disableBodyScroll(document.getElementById('nav-content'))
+  }
+
+  function closeDrawer() {
+    document.getElementById('nav-content').classList.add('hidden')
+    document.getElementById('nav-close').classList.add('hidden')
+    document.getElementById('nav-open').classList.remove('hidden')
+    bodyScrollLock.enableBodyScroll(document.getElementById('nav-content'))
   }
 
   document.getElementById('nav-open').onclick = function () {
-    toggle()
+    openDrawer()
   }
 
   document.getElementById('nav-close').onclick = function () {
-    toggle()
+    closeDrawer()
   }
 </script>
