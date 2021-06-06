@@ -14,7 +14,8 @@
     "prettier-plugin-go-template": "0.0.10"
   },
   "scripts": {
-    "build-css": "tailwindcss build assets/css/tailwind.css -o assets/css/tailwind-dist-full.css",
+    "build-css": "npm run build-css-dev && npm run build-css-prod",
+    "build-css-dev": "tailwindcss build assets/css/tailwind.css -o assets/css/tailwind-dist-full.css",
     "build-css-prod": "cross-env NODE_ENV=production npx tailwindcss build assets/css/tailwind.css -o assets/css/tailwind-dist.css"
   },
   "author": "",

@@ -1156,6 +1156,10 @@ video {
   flex-wrap: wrap !important;
 }
 
+.items-start {
+  align-items: flex-start !important;
+}
+
 .items-end {
   align-items: flex-end !important;
 }
@@ -1210,10 +1214,6 @@ video {
 
 .h-full {
   height: 100% !important;
-}
-
-.h-screen {
-  height: 100vh !important;
 }
 
 .text-sm {
@@ -2331,6 +2331,18 @@ video {
 }
 
 @media (min-width: 1280px) {
+  .xl\:block {
+    display: block !important;
+  }
+
+  .xl\:hidden {
+    display: none !important;
+  }
+
+  .xl\:justify-start {
+    justify-content: flex-start !important;
+  }
+
   .xl\:mx-auto {
     margin-left: auto !important;
     margin-right: auto !important;
@@ -2343,11 +2355,6 @@ video {
   .xl\:max-w-screen-xl {
     max-width: 1280px !important;
   }
-
-  .xl\:px-0 {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
 }
 
 @media (min-width: 1536px) {
@@ -2357,16 +2364,8 @@ video {
     margin-bottom: calc(0px * var(--tw-space-y-reverse)) !important;
   }
 
-  .\32xl\:block {
-    display: block !important;
-  }
-
   .\32xl\:flex {
     display: flex !important;
-  }
-
-  .\32xl\:hidden {
-    display: none !important;
   }
 
   .\32xl\:flex-wrap {
@@ -2379,6 +2378,11 @@ video {
 
   .\32xl\:mt-0 {
     margin-top: 0px !important;
+  }
+
+  .\32xl\:px-0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 
   .\32xl\:w-1\/3 {
