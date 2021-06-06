@@ -1,0 +1,16 @@
+<div class="bg-yellow-300 overflow-auto">
+  {{ $layoutClass := partial "utils/get-layout" . }}
+  <div class="{{ $layoutClass }}">
+    {{ partial "typography/heading1" (dict "h2" true "text" .title) }}
+    <div class="flex flex-wrap lg:items-end">
+      <div class="w-full lg:w-1/2 mb-8 lg:mb-0">
+        <p class="text-secondary-text">{{ .subtitle }}</p>
+      </div>
+      {{ with .cta }}
+        <div class="mx-auto lg:ml-auto lg:mr-0">
+          {{ partial "button/button" . }}
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>

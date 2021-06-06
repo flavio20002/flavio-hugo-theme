@@ -13,6 +13,13 @@ sections:
   - template: section-issues
     title: Priorities
     subtitle: Lorem Ipsum
+  - template: section-donations-band
+    title: Sostienici
+    subtitle: Sostieni il nostro progetto
+    cta:
+      text: Sostienici
+      link: /
+      light: false
   - template: section-testimonials
     title: Dicono di me
     testimonials:
