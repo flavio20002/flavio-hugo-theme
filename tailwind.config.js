@@ -14,33 +14,10 @@ module.exports = {
       bold: 700,
     },
     extend: {
-      height: {
-        '(screen-16)': 'calc(100vh - 4rem)',
-        '(16-4px)': 'calc(4rem - 4px)',
-        '96': '24rem',
-        '128': '32rem',
-        '160': '40rem',
-      },
-      minHeight: {
-        16: '4rem',
-      },
-      maxHeight: {
-        'doc-sidebar': 'calc(100vh - 4rem - var(--height-doc-title, 4rem))',
-      },
-      lineHeight: {
-        '(16-4px)': 'calc(4rem - 4px)',
-      },
-      inset: {
-        16: '4rem',
-        32: '8rem',
-        48: '12rem',
-      },
       padding: {
         scrollbar: 'calc(100vw - 100%)',
       },
       colors: {
-        'eureka': '#38b2ac',
-        'eureka-dark': '#38b2ac',
         'primary-bg': '#FFFFFF',
         'primary-bg-dark': '#000000',
         'secondary-bg': '#ffffff',

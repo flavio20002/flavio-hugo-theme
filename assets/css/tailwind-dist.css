@@ -904,11 +904,6 @@ video {
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse)) !important;
 }
 
-.bg-black {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgba(0, 0, 0, var(--tw-bg-opacity)) !important;
-}
-
 .bg-white {
   --tw-bg-opacity: 1 !important;
   background-color: rgba(255, 255, 255, var(--tw-bg-opacity)) !important;
@@ -1402,14 +1397,6 @@ video {
      object-fit: cover !important;
 }
 
-.opacity-80 {
-  opacity: .8 !important;
-}
-
-.opacity-90 {
-  opacity: .9 !important;
-}
-
 .outline-none {
   outline: 2px solid transparent !important;
   outline-offset: 2px !important;
@@ -1529,6 +1516,10 @@ video {
 
 .pointer-events-none {
   pointer-events: none !important;
+}
+
+.fixed {
+  position: fixed !important;
 }
 
 .absolute {
