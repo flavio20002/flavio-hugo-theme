@@ -2,7 +2,7 @@
 <nav
   id="nav-content"
   style="background-color: {{ if .showImage }} rgba(0,0,0,0.8) {{ else }} rgba(0,0,0,0.9) {{ end }}"
-  class="hidden fixed z-20 top-0 left-0 w-full transition-opacity h-full text-primaryLight text-center font-heading xl:hidden overflow-y-scroll overflow-x-hidden"
+  class="hidden absolute z-20 top-0 left-0 w-full transition-opacity h-full text-primaryLight text-center font-heading xl:hidden overflow-y-scroll overflow-x-hidden"
 >
   <div class="mt-32 w-full border-t-2 border-white space-y-6 py-10">
     {{- range .links }}
