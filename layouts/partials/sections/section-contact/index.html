@@ -50,7 +50,7 @@
             <label class="inline-flex items-center">
               <input id="privacy-checkbox" type="checkbox" class="form-checkbox h-5 w-5 text-secondaryDark" />
               <span class="ml-2 text-lg">
-                Accetti le condizioni della <a class="underline" href="/privacy"> privacy </a>
+                {{ .privacy | safeHTML }}
               </span>
             </label>
           </div>
@@ -59,6 +59,9 @@
               <div class="g-recaptcha" data-sitekey="{{ . }}"></div>
             </div>
           {{ end }}
+          <div id="text-error" class="mt-8 text-red-500 hidden">
+            {{ .errorMessage }}
+          </div>
           <div class="mt-8">
             <button
               disabled
@@ -95,7 +98,6 @@
     e => {
       e.preventDefault()
 
-      // Collect the form data while iterating over the inputs
       var data = {};
       for (var i = 0, ii = form.length; i < ii; ++i) {
         var input = form[i];
@@ -110,7 +112,7 @@
         if (xhr.readyState == 4 && xhr.status === 200 && xhr.responseText) {
           window.location.href = {{ .action }}
         } else if (xhr.status !== 200 || !xhr.responseText) {
-          alert('Si è verificato un errore')
+          document.getElementById('text-error').classList.remove('hidden')
         }
       }
       xhr.send(JSON.stringify(data));
