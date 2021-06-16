@@ -1,5 +1,5 @@
-{{ with .Params.image }}
-  {{ $image := (resources.Get .image).Permalink }}
+{{ with .Params.image.image }}
+  {{ $image := (resources.Get .).Permalink }}
   <meta itemprop="image" content="{{ $image }}" />
   <meta property="og:image" content="{{ $image }}" />
   <meta name="twitter:image" content="{{ $image }}" />
