@@ -8,13 +8,13 @@
     <div class="flex flex-wrap -mx-2">
       {{ range .images }}
         {{ $imageResource := ( resources.Get .image) }}
-        {{ $image200 := $imageResource.Fill "300x300" }}
+        {{ $imageSmall := $imageResource.Fill "300x300" }}
         <a
           href="{{ $imageResource.Permalink }}"
           class="glightbox1 inline-block w-1/2 md:w-1/3 lg:w-1/4 p-2"
           data-gallery="gallery1"
         >
-          <img src="{{ $image200.Permalink }}" class="w-full" alt="{{ .alt }}" />
+          <img src="{{ $imageSmall.Permalink }}" class="w-full" alt="{{ .alt }}" />
         </a>
       {{ end }}
     </div>
