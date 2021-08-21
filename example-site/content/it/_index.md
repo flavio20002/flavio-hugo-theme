@@ -33,6 +33,16 @@ sections:
         cta:
           text: Continua a leggere
           link: /dicono-di-me/lorem
+      - template: section-testimonial
+        name: Lorem Ipsum
+        title: Lorem Ipsum
+        text: Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum
+        image:
+          image: /images/trees.jpg
+          alt: Lorem Ipsum
+        cta:
+          text: Continua a leggere
+          link: /dicono-di-me/lorem
   - template: section-news-list
     title: Notizie
     cta:

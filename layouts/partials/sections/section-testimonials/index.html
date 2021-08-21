@@ -1,12 +1,12 @@
 <div class="overflow-hidden">
   <div class="{{ partial "utils/get-layout" . }}">
     {{ partial "typography/heading1" (dict "h2" true "text" .title) }}
-    <div class="splide">
+    <div class="splide -mx-6">
       <div class="splide__track">
         <ul class="splide__list">
           {{ range .testimonials }}
             <li class="splide__slide">
-              <div class="w-full text-center focus:outline-none" }>
+              <div class="w-full text-center focus:outline-none px-16 md:px-0" }>
                 {{ partial "sections/section-testimonials/testimonial-element" . }}
               </div>
             </li>
