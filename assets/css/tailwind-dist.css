@@ -1267,11 +1267,6 @@ video {
   line-height: 2 !important;
 }
 
-.mx-4 {
-  margin-left: 1rem !important;
-  margin-right: 1rem !important;
-}
-
 .my-6 {
   margin-top: 1.5rem !important;
   margin-bottom: 1.5rem !important;
@@ -1295,6 +1290,11 @@ video {
 .-mx-2 {
   margin-left: -0.5rem !important;
   margin-right: -0.5rem !important;
+}
+
+.-mx-6 {
+  margin-left: -1.5rem !important;
+  margin-right: -1.5rem !important;
 }
 
 .mt-0 {
@@ -1497,6 +1497,11 @@ video {
 .px-10 {
   padding-left: 2.5rem !important;
   padding-right: 2.5rem !important;
+}
+
+.px-16 {
+  padding-left: 4rem !important;
+  padding-right: 4rem !important;
 }
 
 .pr-1 {
