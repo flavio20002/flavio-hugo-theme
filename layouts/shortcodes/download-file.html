@@ -1,0 +1,2 @@
+{{ $file := (resources.Get (print "/images/" ( index .Params 1))).Permalink }}
+<a href="{{ $file }}" target="_blank">{{ index .Params 0 }}</a>

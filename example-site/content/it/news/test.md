@@ -34,3 +34,5 @@ sections:
 ---
 
 Lorem Ipsum
+
+{{< download-file "Download" "logo.png" >}}
