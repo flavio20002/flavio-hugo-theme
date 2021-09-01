@@ -4,6 +4,13 @@
       <div class="w-full 2xl:w-1/3">
         {{ partial "typography/heading1" (dict "h2" true "text" .title) }}
         <p class="text-secondary-text">{{ .subtitle }}</p>
+        {{- with .fileName -}}
+          {{ $fileResource := ( resources.Get .) }}
+          <a href="{{ $fileResource.Permalink }}" target="_blank" class="mt-8  flex items-center">
+            <i class="far fa-file-pdf fa-2x"></i>
+            <p class="ml-2 inline">{{ $.fileLabel }}</p>
+          </a>
+        {{- end -}}
       </div>
       <div class="flex flex-wrap items-center 2xl:items-start mt-10 2xl:mt-0 space-y-6 2xl:space-y-0 w-full 2xl:w-2/3 ">
         {{ range (where site.RegularPages.ByWeight "Section" "issues") }}

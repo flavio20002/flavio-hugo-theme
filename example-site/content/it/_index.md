@@ -13,6 +13,8 @@ sections:
   - template: section-issues
     title: Priorities
     subtitle: Lorem Ipsum
+    fileLabel: Scarica il programma completo
+    fileName: /images/trees.jpg
   - template: section-donations-band
     title: Sostienici
     subtitle: Sostieni il nostro progetto
