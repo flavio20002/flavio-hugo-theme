@@ -20,9 +20,7 @@
     {{ end }}
 
     {{ with .Params.image }}
-      <a href="{{ $.Permalink }}" class="mx-auto">
-        {{ partial "utils/get-image" (dict "image" .image "alt" .alt) }}
-      </a>
+      {{ partial "utils/get-image" (dict "image" .image "alt" .alt) }}
     {{ end }}
   </div>
   <div class="prose md:prose-lg mx-auto dark:prose-light">
