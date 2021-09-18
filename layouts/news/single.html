@@ -1,4 +1,11 @@
 {{ define "main" }}
   {{ partial "news/news-post" . }}
   {{ partial "flexible-content" . }}
+  {{ $layoutClass := partial "utils/get-layout" . }}
+
+  {{ with .Site.DisqusShortname }}
+    <div class="{{ $layoutClass }}">
+      {{ template "_internal/disqus.html" $ }}
+    </div>
+  {{ end }}
 {{ end }}
