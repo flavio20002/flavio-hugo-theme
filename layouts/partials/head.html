@@ -13,23 +13,21 @@
 {{- $fontawesomeCSS := resources.Get "css/fontawesome-5.15.3.css" }}
 {{- $mainCSS := resources.Get "css/main.css" }}
 {{- $tailwindCSS := resources.Get "css/tailwind-dist.css" }}
-{{- $glightboxCSS := resources.Get "css/glightbox-3.0.8.css" }}
 
 {{ if .Site.IsServer }}
   {{- $tailwindCSS = resources.Get "css/tailwind-dist-full.css" }}
 {{ end }}
 
-{{ $css := slice $splideCSS $tailwindCSS $fontawesomeCSS $mainCSS $glightboxCSS | resources.Concat "css/bundle.css" }}
+{{ $css := slice $splideCSS $tailwindCSS $fontawesomeCSS $mainCSS | resources.Concat "css/bundle.css" }}
 {{- $css := $css | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.Permalink }}" />
 
 {{- $splideJS := resources.Get "js/splide-2.4.20.js" | minify }}
 {{- $intersectionObserverJS := resources.Get "js/intersection-observer-0.7.0.js" | minify }}
 {{- $lazyload := resources.Get "js/lazyload-17.3.1.js" | minify }}
-{{- $glightbox := resources.Get "js/glightbox-3.0.8.js" | minify }}
 {{- $bodyScrollLock := resources.Get "js/bodyScrollLock-3.1.5.js" | minify }}
 
-{{ $js := slice $splideJS $intersectionObserverJS $lazyload $glightbox $bodyScrollLock | resources.Concat "js/bundle.js" }}
+{{ $js := slice $splideJS $intersectionObserverJS $lazyload $bodyScrollLock | resources.Concat "js/bundle.js" }}
 {{- $js := $js | minify | fingerprint }}
 <script src="{{ $js.Permalink }}"></script>
 
